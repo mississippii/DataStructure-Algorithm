@@ -1,7 +1,7 @@
-BinarySearch\binarysearch.exe
-BinarySearch\binarysearch.o
-BinarySearch\binarySearchByRecursion.exe
-BinarySearch\binarySearchByRecursion.o
+BinarySearch/binarysearch.exe
+BinarySearch/binarysearch.o
+BinarySearch/binarySearchByRecursion.exe
+BinarySearch/binarySearchByRecursion.o
 DataStructureAndAlgorithm.cbp
 DataStructureAndAlgorithm.depend
 DataStructureAndAlgorithm.layout
