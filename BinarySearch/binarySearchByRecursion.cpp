@@ -1,7 +1,3 @@
-/*<---------------Binary search---------------------->*/
-
-
-
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -12,14 +8,13 @@ using namespace std;
 #define mini          INT_MIN
 
 
-bool BinarySearch(int ara[],int desierValue,int aralen){
+bool BinarySearchByRecursion(int ara[],int desierValue,int left,int right){
 
-    int left =0,right=aralen;
-    while(left<=right) {
-        int mid=(left+right)/2;
+    if(left<=right){
+        int mid = (left+right)/2;
         if(ara[mid]==desierValue)return true;
-        else if (ara[mid]>desierValue)right=mid-1;
-        else left=mid+1;
+        else if (ara[mid]>desierValue)return BinarySearchByRecursion(ara,desierValue,left,mid-1);
+        else return BinarySearchByRecursion(ara,desierValue,mid+1,right);
     }
     return false;
 }
@@ -33,7 +28,7 @@ int main() {
         int searchValue;
         cout<<"Enter your desired value: ";
         cin>>searchValue;
-        bool flag =BinarySearch(ara,searchValue,15);
+        bool flag =BinarySearchByRecursion(ara,searchValue,0,15);
         if(flag)cout<<searchValue<<" Is Present this array"<<endl;
         else cout<<searchValue<<" is not Present this array"<<endl;
 
