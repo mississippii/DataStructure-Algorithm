@@ -5,3 +5,5 @@ BinarySearch/binarySearchByRecursion.o
 DataStructureAndAlgorithm.cbp
 DataStructureAndAlgorithm.depend
 DataStructureAndAlgorithm.layout
+BinarySearch/LowerBound.exe
+BinarySearch/LowerBound.o
