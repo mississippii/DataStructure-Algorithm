@@ -1,3 +1,6 @@
+/*Lower Bound is the leftmost position of a sorted array  for a number where you placed the number without removing  any
+ element  from this array and the array reamin sorted */
+
 #include <bits/stdc++.h>
 using namespace std;
 
