@@ -33,7 +33,8 @@ int main() {
         int searchValue;
         cout<<"Enter your desired value: ";
         cin>>searchValue;
-        bool flag =BinarySearch(ara,searchValue,15);
+        int n=16; //size of arra
+        bool flag =BinarySearch(ara,searchValue,n);
         if(flag)cout<<searchValue<<" Is Present this array"<<endl;
         else cout<<searchValue<<" is not Present this array"<<endl;
 

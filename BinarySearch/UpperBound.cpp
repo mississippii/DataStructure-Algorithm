@@ -21,14 +21,15 @@ int UpperBound(int ara[],int startIndx,int endIndx,int value){
 
 int main() {
 
-    int ara[]={1,2,3,4,5,6,7,8,9,10,10,12,13,14,15,16};
+    int ara[]={1,2,3,4,5,6,8,8,9,10,10,12,13,14,15,16};
     int TC;
     cin >> TC;
     while (TC--) {
         int searchValue;
         cout<<"Enter your desired value: ";
         cin>>searchValue;
-        cout<<"Upper Bound of the "<<searchValue<<" is :"<<UpperBound(ara,0,15,searchValue)<<endl;
+        int n=16 ;//sizeof ara;
+        cout<<"Upper Bound of the "<<searchValue<<" is Index :"<<UpperBound(ara,0,n,searchValue)<<endl;
     }
     return 0;
 }

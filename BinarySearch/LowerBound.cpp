@@ -28,7 +28,8 @@ int main() {
         int searchValue;
         cout<<"Enter your desired value: ";
         cin>>searchValue;
-        cout<<"Lower Bound of the "<<searchValue<<" is :"<<LowerBound(ara,0,15,searchValue)<<endl;
+        int n=16 ;//size ara;
+        cout<<"Lower Bound of the "<<searchValue<<" is Index :"<<LowerBound(ara,0,n,searchValue)<<endl;
     }
     return 0;
 }
