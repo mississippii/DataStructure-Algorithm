@@ -9,3 +9,5 @@ BinarySearch/LowerBound.exe
 BinarySearch/LowerBound.o
 BinarySearch/UpperBound.exe
 BinarySearch/UpperBound.o
+DataStructures/SegmentTree.o
+DataStructures/SegmentTree.exe
