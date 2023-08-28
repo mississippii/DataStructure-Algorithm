@@ -1,13 +1,2 @@
-BinarySearch/binarysearch.exe
-BinarySearch/binarysearch.o
-BinarySearch/binarySearchByRecursion.exe
-BinarySearch/binarySearchByRecursion.o
-DataStructureAndAlgorithm.cbp
-DataStructureAndAlgorithm.depend
-DataStructureAndAlgorithm.layout
-BinarySearch/LowerBound.exe
-BinarySearch/LowerBound.o
-BinarySearch/UpperBound.exe
-BinarySearch/UpperBound.o
-DataStructures/SegmentTree.o
-DataStructures/SegmentTree.exe
+*.o
+*.exe
