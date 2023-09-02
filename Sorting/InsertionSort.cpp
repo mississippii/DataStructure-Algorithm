@@ -7,7 +7,7 @@ using namespace std;
 #define maxi          INT_MAX
 #define mini          INT_MIN
 
-
+//Time Complexity O(n^2)
 void InsertionSort(int ara[],int n){
 
     for(int i=1;i<n;i++){
