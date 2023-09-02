@@ -8,7 +8,7 @@ using namespace std;
 #define mini          INT_MIN
 
 //Time Complexity O(n^2)
-void InsertionSort(int ara[],int n){
+void insertionSort(int ara[],int n){
 
     for(int i=1;i<n;i++){
         int key=ara[i];
