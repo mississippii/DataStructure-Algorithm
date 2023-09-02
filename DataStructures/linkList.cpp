@@ -28,7 +28,7 @@ void Display(Node *head){
         cout<<head->data<<"---> ";
         head=head->next;
     }
-    cout<<endl;
+    cout<<"NULL"<<endl;
     return;
 }
 
