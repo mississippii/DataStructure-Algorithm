@@ -9,11 +9,11 @@ using namespace std;
 
 //<-----Time Complexity O(n^2)------->
 
-void SelectionSort(int ara[],int n){
+void BubbleSort(int ara[],int n){
     for(int i=0;i<10;i++){
-        for(int j=i+1;j<10;j++){
-            if(ara[i]>ara[j]){
-                swap(ara[i],ara[j]);
+        for(int j=1;j<n;j++){
+            if(ara[j]<ara[j-1]){
+                swap(ara[j],ara[j-1]);
             }
         }
     }
@@ -25,10 +25,11 @@ int main() {
     cin >> TC;
     while (TC--) {
         int ara[10]={9,4,1,8,3,2,6,10,5,7};
-        SelectionSort(ara,10);
+        BubbleSort(ara,10);
         for(int i=0;i<10;i++)
             cout<<ara[i]<<" ";
         cout<<endl;
+
     }
     return 0;
 }
