@@ -1,3 +1,8 @@
+
+/*<---------------Binary search---------------------->*/
+
+
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -22,16 +27,11 @@ bool BinarySearchByRecursion(int ara[],int desierValue,int left,int right){
 int main() {
 
     int ara[]={1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16};
-    int TC;
-    cin >> TC;
-    while (TC--) {
-        int searchValue;
-        cout<<"Enter your desired value: ";
-        cin>>searchValue;
-        bool flag =BinarySearchByRecursion(ara,searchValue,0,15);
-        if(flag)cout<<searchValue<<" Is Present this array"<<endl;
-        else cout<<searchValue<<" is not Present this array"<<endl;
-
-    }
+    int searchValue;
+    cout<<"Enter your desired value: ";
+    cin>>searchValue;
+    bool flag =BinarySearchByRecursion(ara,searchValue,0,15);
+    if(flag)cout<<searchValue<<" Is Present this array"<<endl;
+    else cout<<searchValue<<"is not Present this array"<<endl;
     return 0;
 }
