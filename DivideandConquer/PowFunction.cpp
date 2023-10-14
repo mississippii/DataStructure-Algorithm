@@ -10,12 +10,12 @@ using namespace std;
 #define maxi          INT_MAX
 #define mini          INT_MIN
 
-double PowerOfTwoNumbers(double base,long long pow){
-        if(pow<0)return 1/double (PowerOfTwoNumbers(base, -1*pow));
-        else if(pow==0)return 1;
-        else if (pow ==1)return base;
-        else if ((pow&1)==1)return PowerOfTwoNumbers(base,pow-1)*base;
-        double temp = PowerOfTwoNumbers(base ,pow/2);
+double PowerOfTwoNumbers(double base,long long power){
+        if(power<0)return 1/double (PowerOfTwoNumbers(base, -1*power));
+        else if(power==0)return 1;
+        else if (power ==1)return base;
+        else if ((power&1)==1)return PowerOfTwoNumbers(base,power-1)*base;
+        double temp = PowerOfTwoNumbers(base ,power/2);
         return 1LL*temp*temp;
     }
 
@@ -25,10 +25,10 @@ int main() {
     cin >> TC;
     while (TC--) {
         cout<<"Enter base and power :";
-        int base,pow;
-        cin>>base>>pow;
-        double ans = PowerOfTwoNumbers(base,pow);
-        cout<<"Power of "<<base<<"^"<<pow<<" is :"<<ans<<endl;
+        int base,power;
+        cin>>base>>power;
+        double ans = PowerOfTwoNumbers(base,power);
+        cout<<"Power of "<<base<<"^"<<power<<" is :"<<ans<<endl;
     }
     return 0;
 }
