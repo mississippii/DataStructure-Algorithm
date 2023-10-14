@@ -46,9 +46,9 @@ void PreorderTraversal(Node* root){
 void InorderTraversal(Node* root){
     if(!root)return;
 
-    PreorderTraversal(root->left);
+    InorderTraversal(root->left);
     cout<<root->data<<" ";
-    PreorderTraversal(root->right);
+    InorderTraversal(root->right);
 
     return;
 
@@ -57,8 +57,8 @@ void InorderTraversal(Node* root){
 void PostorderTraversal(Node* root){
     if(!root)return;
 
-    PreorderTraversal(root->left);
-    PreorderTraversal(root->right);
+    PostorderTraversal(root->left);
+    PostorderTraversal(root->right);
 
     cout<<root->data<<" ";
 
