@@ -38,7 +38,7 @@ int main() {
     cin >> TC;
     while (TC--) {
        Node *head=NULL;
-       cout<<"PLease enter a number that maximum number you want to store on LinkList : ";
+       cout<<"PLease enter a value that maximum number you want to store on LinkList : ";
        int n;
        cin>>n;
        while(n--){
