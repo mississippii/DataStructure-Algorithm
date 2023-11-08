@@ -11,14 +11,14 @@ bool IsValid(int x,int y){
     bool t = false;
     return  t = ((x<8 && x>=0) && (y<8 && y>=0));
 }
-void FloodFill(int matrix[][8],int srcx,int srcy,int currcolor,int paintcolor){
-    cout<<endl;
-    if( (srcx>=8 && srcx<0) || (srcy>=8 && srcy<0) )return;
-    if(IsValid(srcx+1,srcy) && matrix[srcx+1][srcy] == currcolor )FloodFill(matrix,srcx+1,srcy,matrix[srcx+1][srcy],paintcolor);
-    if(IsValid(srcx-1,srcy) && matrix[srcx-1][srcy] == currcolor )FloodFill(matrix,srcx-1,srcy,matrix[srcx-1][srcy],paintcolor);
-    if(IsValid(srcx,srcy+1) && matrix[srcx][srcy+1] == currcolor )FloodFill(matrix,srcx,srcy+1,matrix[srcx][srcy+1],paintcolor);
-    if(IsValid(srcx,srcy-1) && matrix[srcx][srcy-1] == currcolor )FloodFill(matrix,srcx,srcy-1,matrix[srcx][srcy-1],paintcolor);
+void FloodFill(int matrix[][8],int srcx,int srcy,int color,int paintcolor){
+    
     matrix[srcx][srcy]=paintcolor;
+    if(IsValid(srcx+1,srcy) && matrix[srcx+1][srcy] == color )FloodFill(matrix,srcx+1,srcy,matrix[srcx+1][srcy],paintcolor);
+    if(IsValid(srcx-1,srcy) && matrix[srcx-1][srcy] == color )FloodFill(matrix,srcx-1,srcy,matrix[srcx-1][srcy],paintcolor);
+    if(IsValid(srcx,srcy+1) && matrix[srcx][srcy+1] == color )FloodFill(matrix,srcx,srcy+1,matrix[srcx][srcy+1],paintcolor);
+    if(IsValid(srcx,srcy-1) && matrix[srcx][srcy-1] == color )FloodFill(matrix,srcx,srcy-1,matrix[srcx][srcy-1],paintcolor);
+    
     return;
 }
 
@@ -42,7 +42,7 @@ int main() {
         FloodFill(matrix,x,y,currentColor,desireColor);//Size of the 2D array is static thats why we didn't pass the array size as argument;
 
         for(int i=0 ; i<8 ; i++){
-            for(int j=0 ; j<8 ; i++)
+            for(int j=0 ; j<8 ; j++)
                 cout<<matrix[i][j]<<" ";
             cout<<endl;
         }
