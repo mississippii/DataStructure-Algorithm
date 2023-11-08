@@ -8,8 +8,7 @@ using namespace std;
 #define mini          INT_MIN
 
 bool IsValid(int x,int y){
-    bool t = false;
-    return  t = ((x<8 && x>=0) && (y<8 && y>=0));
+    return ((x<8 && x>=0) && (y<8 && y>=0));
 }
 void FloodFill(int matrix[][8],int srcx,int srcy,int color,int paintcolor){
     
@@ -37,7 +36,7 @@ int main() {
         int y = 4;// y co-ordinate value of Starting Position
         int currentColor= matrix[x][y];
         int desireColor;
-        cout<<"Which color(enter a int value) you want to paint and Dont enter this"<<currentColor<<" value :";
+        cout<<"Which color(enter a int value) you want to paint and Dont enter this "<<currentColor<<" value :";
         cin>>desireColor;
         FloodFill(matrix,x,y,currentColor,desireColor);//Size of the 2D array is static thats why we didn't pass the array size as argument;
 
