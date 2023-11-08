@@ -37,7 +37,7 @@ int main() {
         int y = 4;// y co-ordinate value of Starting Position
         int currentColor= matrix[x][y];
         int desireColor;
-        cout<<"Which color(enter a int value) you want to paint :";
+        cout<<"Which color(enter a int value) you want to paint and Dont enter this"<<currentColor<<" value :";
         cin>>desireColor;
         FloodFill(matrix,x,y,currentColor,desireColor);//Size of the 2D array is static thats why we didn't pass the array size as argument;
 
