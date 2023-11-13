@@ -14,11 +14,9 @@ using namespace std;
 int IsPossible(int listOfCoins[],int target){
     int *memo;
     memo = new int[target+1];
-    RESET(memo,0);
     for(int i=0;i<=target;i++){
         memo[i]=0;
     }
-
     memo[0]=1;
     for (int  i = 1; i <=target; i++){
         for (int j = 0; j < 2; j++){
