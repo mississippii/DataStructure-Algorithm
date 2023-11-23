@@ -7,23 +7,15 @@ using namespace std;
 #define maxi          INT_MAX
 #define mini          INT_MIN
 
-void TraversWithBFS(vector<vector<int>>& graph, vector<bool>& visited, int src){
-    queue<int>Q;
-    Q.push(src);
-    while(!Q.empty()) {
-        int temp = Q.front();
-        cout<<temp<<"-->";
-        Q.pop();
-        for(auto x : graph[temp]){
-            if(!visited[x]){
+void TraverseWithDFS(vector<vector<int>>&Graph, vector<bool>&visited,int src){
+    cout<<src<<"-->";
+    for(auto x : Graph[src]){
+        if(!visited[x]){
             visited[x] = true;
-            Q.push(x);
-            }
+            TraverseWithDFS(Graph,visited,x);
         }
     }
-    cout<<endl;
     return;
-
 }
 
 int main() {
@@ -31,7 +23,8 @@ int main() {
     vector<vector<int>>Graph ={
                                 {},
                                 {2,3,4},
-                                {6},{7,8},
+                                {6},
+                                {7,8},
                                 {7},
                                 {8,10},
                                 {9},
@@ -39,7 +32,7 @@ int main() {
                                 {3,5},
                                 {6,7,10},
                                 {9,5}
-                                };
+                            };
  /*
         Adjacency List
         0-->
@@ -56,7 +49,8 @@ int main() {
 */
    int src=1;
    vector<bool>visited(11);
-   TraversWithBFS(Graph,visited,src);
+   visited[src] = true;
+   TraverseWithDFS(Graph, visited, src);
     return 0;
 }
 
