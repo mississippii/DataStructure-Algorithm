@@ -39,7 +39,20 @@ int main() {
         {3,5},
         {6,7,10},
         {9,5}};
-        
+ /*
+        Adjacency List
+        0-->
+        1--> 2,3,4
+        2--> 6
+        3--> 7,8
+        4--> 7
+        5--> 8,10
+        6--> 9
+        7--> 3,4,9
+        8--> 3,5
+        9--> 6,7,10
+        10-->9,5
+*/
    int src=1;
    vector<bool>visited(11);
    TraversWithBFS(Graph,visited,src);
