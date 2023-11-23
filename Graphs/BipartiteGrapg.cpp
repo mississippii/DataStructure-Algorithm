@@ -48,6 +48,10 @@ int main(){
                             {0,1,3},
                             {0,2}
                             };
-    cout<<IshBipartite(Graph,1)<<endl;
+                            
+    if(IshBipartite(Graph,1))
+        cout<<"Graph id Bipartite"<<endl;
+    else 
+        cout <<"Graph is not Bipartite"<<endl;
     return 0;
 }
