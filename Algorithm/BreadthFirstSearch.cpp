@@ -7,6 +7,11 @@ using namespace std;
 #define maxi          INT_MAX
 #define mini          INT_MIN
 
+/*
+    To find shortest path in a graph BFS works only if the graph is unweighted,for weighted graph you should use
+    Dijkstra's and Bellman ford  algorightm.
+*/
+
 void TraversWithBFS(vector<vector<int>>& graph, vector<bool>& visited, int src){
     queue<int>Q;
     Q.push(src);
