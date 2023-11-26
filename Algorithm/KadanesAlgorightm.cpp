@@ -25,6 +25,6 @@ int main()
 {
     int ara[9] = {4, -8, -2, 8, -1, 3, 2, -6, 2};
     int ans = KadanesAlgorithm(ara, 9);
-    cout << "Maximum sbarray sum :" << ans << endl;
+    cout << "Maximum subarray sum :" << ans << endl;
     return 0;
 }
