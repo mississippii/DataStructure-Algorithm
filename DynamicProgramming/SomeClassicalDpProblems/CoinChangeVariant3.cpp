@@ -22,7 +22,7 @@ bool IsPossible(int ara[],int lenght,int targetValue){ //memory complexity O(n^2
 
 }
 
-bool IsItPossible(int arr[],int length,int targetValue){
+bool IsItPossible(int arr[],int length,int targetValue){//memory complexity O(n)
     int memo[siz];
     RESET(memo,0);
     memo[0]=1;
