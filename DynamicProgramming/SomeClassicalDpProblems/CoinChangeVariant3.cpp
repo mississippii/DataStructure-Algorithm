@@ -7,7 +7,7 @@ using namespace std;
 #define maxi          INT_MAX
 #define mini          INT_MIN
 const int siz=1000;
-bool IsPossible(int ara[],int lenght,int targetValue){
+bool IsPossible(int ara[],int lenght,int targetValue){ //memory complexity O(n^2)
 
     bool memo[siz][siz];
     RESET(memo,0);
@@ -18,15 +18,22 @@ bool IsPossible(int ara[],int lenght,int targetValue){
             if((j-ara[i]>=0 && memo[i-1][j-ara[i]] ) || memo[i-1][j]) memo[i][j] =1;
         }
     }
-    for(int i=0;i<lenght;i++){
-        for(int j=0;j<=targetValue;j++)
-            cout<<memo[i][j]<<" ";
-        cout<<endl;
-    cout<<endl;
-    }
     return memo[lenght-1][targetValue];
 
 }
+
+bool IsItPossible(int arr[],int length,int targetValue){
+    int memo[siz];
+    RESET(memo,0);
+    memo[0]=1;
+    for(int i=1;i<length;i++){
+        for(int j=targetValue;j>=0;j--){
+            if(j>=arr[i] && memo[j-arr[i]]) memo[j]=1;
+        }
+    }
+    return memo[targetValue];
+}
+
 
 int main() {
 
@@ -36,7 +43,7 @@ int main() {
         int ara[10]={0,5,4,10,7,9,13,15,23,20};
         int targetValue;
         cin>>targetValue;
-        if(IsPossible(ara,10,targetValue))cout<<"YES"<<endl;
+        if(IsItPossible(ara,10,targetValue))cout<<"YES"<<endl;
         else cout<<"NO"<<endl;
     }
     return 0;
