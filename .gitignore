@@ -1,6 +1,4 @@
-*.o
-*.exe
-*.cbp
-*.depend
-*.layout
-.fake
+*
+!*.cpp
+!*.json
+
