@@ -43,5 +43,6 @@ int main() {
     matrix[2].col=20;
     RESET(memo,-1);
     int ans = getMinimumScalerOperations(0,2);
+    cout<<ans<<endl;
     return 0;
 }
