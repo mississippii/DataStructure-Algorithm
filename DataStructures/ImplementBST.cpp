@@ -19,75 +19,77 @@ struct Node{
     }
 };
 
-void InsertDataIntoTree(Node *root,int data){
+class BST{
+    
+private:
+    Node* root;
 
-    if(root->data > data){
-        if(root->left)InsertDataIntoTree(root->left,data);
-        else root->left = new Node(data);
-    }
-    else{
-        if(root->right) InsertDataIntoTree(root->right, data);
-        else root->right = new Node(data);
-    }
-
-    return;
-}
-void PreorderTraversal(Node* root){
-    if(!root)return;
-
-    cout<<root->data<<" ";
-
-    PreorderTraversal(root->left);
-    PreorderTraversal(root->right);
-
-    return;
-}
-
-void InorderTraversal(Node* root){
-    if(!root)return;
-
-    InorderTraversal(root->left);
-    cout<<root->data<<" ";
-    InorderTraversal(root->right);
-
-    return;
-
-}
-
-void PostorderTraversal(Node* root){
-    if(!root)return;
-
-    PostorderTraversal(root->left);
-    PostorderTraversal(root->right);
-
-    cout<<root->data<<" ";
-
-    return;
-}
-int main() {
-
-    int TC;
-    cin >> TC;
-    while (TC--) {
-        Node* Root=NULL;
-        cout<<"How many data you want to Insert into Tree : ";
-        int n;
-        cin>>n;
-        while(n--){
-            int data;
-            cin>>data;
-            if(!Root)Root = new Node(data);
-            else InsertDataIntoTree(Root,data);
+    Node* InsertDataIntoTreeUtil(Node* root, int data){
+        if(!root){
+            return new Node(data);
         }
-        cout<<"Travers Into Tree :\nPreOrder Traversal : ";
-        PreorderTraversal(Root);
-        cout<<endl<<"Inorder Traversal : ";
-        InorderTraversal(Root);
-        cout<<endl<<"Postorder Traversal : ";
-        PostorderTraversal(Root);
-        cout<<endl;
+        if(data < root->data) root->left = InsertDataIntoTreeUtil(root->left, data);
+        else root->right = InsertDataIntoTreeUtil(root->right, data);
+        return root;
+    }
+
+public:
+    BST(){
+        root = NULL;
+    }
+    Node* getRoot(){
+        return this->root;
+    }
+
+    void InsertDataIntoTree(int data){
+        this->root = InsertDataIntoTreeUtil(this->root, data);
+    }
+
+    void PreorderTraversal(Node* root){
+        if(!root)return;
+
+        cout<<root->data<<" ";
+
+        PreorderTraversal(root->left);
+        PreorderTraversal(root->right);
+
+        return;
+    }
+
+    void InorderTraversal(Node* root){
+        if(!root)return;
+
+        InorderTraversal(root->left);
+        cout<<root->data<<" ";
+        InorderTraversal(root->right);
+
+        return;
 
     }
+
+    void PostorderTraversal(Node* root){
+        if(!root)return;
+
+        PostorderTraversal(root->left);
+        PostorderTraversal(root->right);
+
+        cout<<root->data<<" ";
+
+        return;
+    }
+};
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    BST bst;
+    bst.InsertDataIntoTree(50);
+    bst.InsertDataIntoTree(30);
+    bst.InsertDataIntoTree(20);
+    bst.InsertDataIntoTree(40);
+    bst.InsertDataIntoTree(70); 
+    Node* root = bst.getRoot();
+    bst.InorderTraversal(root);
     return 0;
 }
 
