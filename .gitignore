@@ -1,4 +1,52 @@
+# Compiled object files
 *.o
+*.obj
+
+# Compiled executables
 *.exe
-*.
+*.out
+*.app
+
+# Libraries
+*.a
+*.so
+*.so.*
+*.lib
+*.dll
+
+# Debug files
+*.dSYM/
+*.pdb
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Compiled binaries (executables without extension)
+# Root level binaries
+BreadthFirstSearch
+MatrixChainMultiplications
+
+# DataStructures binaries
+DataStructures/ImplementBST
+DataStructures/LinkedList
+DataStructures/DoublyLinkedList
+
+# GreadyTechnique binaries
+GreadyTechnique/FractionalKnapsack
+
+# NumberTheory binaries
+NumberTheory/EuclideanAlgorithmFinding GCD
+
+# Build directories
+build/
+bin/
+out/
 
