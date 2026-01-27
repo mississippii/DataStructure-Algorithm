@@ -24,17 +24,21 @@ class LinkedList
 private:
     Node* head;
     Node* taile;
+
 public:
     LinkedList(){
         head=NULL;
         taile=NULL;
     }
+
     Node* getHead(){
         return head;
     }
+
     Node* getTail(){
         return taile;
     }
+
     void insertAtLinkList(int data){
         Node* newNode=new Node(data);
         if(!head){
@@ -55,28 +59,33 @@ public:
         }
         taile->next=temp;
     }
+    
     Node* detectCycle(){
-        Node* slow=head;
-        Node* fast=head;
-        while(fast && fast->next){
-            slow=slow->next;
-            fast=fast->next->next;
-            if(slow==fast){
-                slow=head;
-                while(slow!=fast){
-                    slow=slow->next;
-                    fast=fast->next;
+        Node* slow = this->head;
+        Node* fast = this->head;
+
+        while( fast && fast->next){
+            slow = slow->next;
+            fast = fast->next->next;
+
+            if(slow == fast){
+                slow = this->head;
+
+                while(slow !=fast){
+                    slow = slow->next;
+                    fast = fast->next;
                 }
                 return slow;
             }
         }
-        return NULL; // No cycle
+        return NULL;
     }
 };
 
 int main() {
     ios::sync_with_stdio(0);
     cin.tie(0);
+
     LinkedList linkedList;
     linkedList.insertAtLinkList(10);
     linkedList.insertAtLinkList(20);
@@ -84,7 +93,11 @@ int main() {
     linkedList.insertAtLinkList(40);
     linkedList.insertAtLinkList(50);
     linkedList.insertAtLinkList(60);
-    linkedList.createCycleAt(30); 
+    linkedList.insertAtLinkList(70);
+    linkedList.insertAtLinkList(80);
+    linkedList.insertAtLinkList(90);
+
+    linkedList.createCycleAt(4); // Creating a cycle for testing
 
     Node* cycleStartNode = linkedList.detectCycle();
     if(cycleStartNode){
