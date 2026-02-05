@@ -1,8 +1,8 @@
-package DynamicProgramming.SomeClassicalDpProblems;
+package DynamicProgramming;
 
 import java.util.Arrays;
 
-public class TSM {
+public class TSM_Bitmask {
     private static int tsp(int[][] graph,int[][] memo, int mask,int pos, int n) {
         if(mask == (1<<n) - 1){
             return graph[pos][0];
