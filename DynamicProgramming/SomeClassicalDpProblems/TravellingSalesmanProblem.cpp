@@ -17,7 +17,7 @@ int memo[1<<20][20];
 bool checkBit(int n,int i){
     return (n &(1<<i));
 }
-int minimuCost(int graph[][4],int bit,int at){
+int minimumCost(int graph[][4],int bit,int at){
 
     if(bit == (1<<4)-1) return graph[at][0];
 
@@ -27,7 +27,7 @@ int minimuCost(int graph[][4],int bit,int at){
 
     for(int i=0;i<4;i++){
         if( !checkBit(bit,i)){
-            res = min(res,minimuCost(graph, (bit |(1<<i)),i)+graph[at][i]);
+            res = min(res,minimumCost(graph, (bit |(1<<i)),i)+graph[at][i]);
         }
     }
     return res;
@@ -44,7 +44,7 @@ int main() {
             {20,25,30,0}
             };
         RESET(memo,-1);
-        int ans = minimuCost(graph,0,0);
+        int ans = minimumCost(graph,0,0);
         cout << ans << endl;
     }
     return 0;
