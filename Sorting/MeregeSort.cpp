@@ -1,50 +1,49 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define ll            long long
-#define PI            acos(-1)
-#define RESET(a,b)    memset(a,b,sizeof(a))
-#define maxi          INT_MAX
-#define mini          INT_MIN
+// Time Complexity O(n log(n))
+// Space Complexity O(n)
 
-//Time Complexity O(n log(n))
+void merge(int *arr, int left, int mid, int right) {
+    int n1 = mid - left + 1;
+    int n2 = right - mid;
 
-int temp[10000];
+    int leftArr[n1], rightArr[n2];
 
-void  mergeSort(int Ara[],int startingIndex,int endingIndex){
+    for (int i = 0; i < n1; i++) leftArr[i] = arr[left + i];
+    for (int i = 0; i < n2; i++) rightArr[i] = arr[mid + 1 + i];
 
-    if(startingIndex==endingIndex)return ;
-
-    int mid=(startingIndex+endingIndex)/2;
-
-    mergeSort(Ara,startingIndex,mid);
-    mergeSort(Ara,mid+1,endingIndex);
-
-    for(int i=startingIndex,j=mid+1,k=startingIndex;k<=endingIndex;k++){
-
-        if(i==mid+1)temp[k]=Ara[j++];
-        else if (j==endingIndex+1)temp[k]=Ara[i++];
-        else if (Ara[i]<Ara[j])temp[k]=Ara[i++];
-        else temp[k]=Ara[j++];
+    int i = 0, j = 0, k = left;
+    while (i < n1 && j < n2) {
+        if (leftArr[i] <= rightArr[j])
+            arr[k++] = leftArr[i++];
+        else
+            arr[k++] = rightArr[j++];
     }
-    for(int k=startingIndex;k<=endingIndex;k++)
-        Ara[k]=temp[k];
 
-    return;
+    while (i < n1) arr[k++] = leftArr[i++];
+    while (j < n2) arr[k++] = rightArr[j++];
+}
+
+void mergeSort(int *arr, int left, int right) {
+    if (left >= right) return;
+
+    int mid = left + (right - left) / 2;
+
+    mergeSort(arr, left, mid);
+    mergeSort(arr, mid + 1, right);
+    merge(arr, left, mid, right);
 }
 
 int main() {
+    int arr[] = {9, 3, 7, 1, 8, 5, 2, 10, 4, 6};
+    int n = sizeof(arr) / sizeof(arr[0]);
 
-    int TC;
-    cin >> TC;
-    while (TC--) {
-        int Ara[10] = {9, 3, 7, 1, 8, 5, 2, 10, 4, 6};
-        mergeSort(Ara,0,9);
+    mergeSort(arr, 0, n - 1);
 
-        for(int i=0;i<10;i++)
-            cout<<Ara[i]<<" ";
-        cout<<endl;
+    for (int i = 0; i < n; i++)
+        cout << arr[i] << " ";
+    cout << endl;
 
-    }
     return 0;
 }

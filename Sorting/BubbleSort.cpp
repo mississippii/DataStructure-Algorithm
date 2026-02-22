@@ -9,28 +9,34 @@ using namespace std;
 
 //<-----Time Complexity O(n^2)------->
 
-void BubbleSort(int ara[],int n){
-    for(int i=0;i<10;i++){
-        for(int j=1;j<n;j++){
-            if(ara[j]<ara[j-1]){
-                swap(ara[j],ara[j-1]);
+void BubbleSort(int *ara,int n){
+    for(int i=0;i<n;i++){
+        bool swapped = false;
+        for(int j=0;j<n-i-1;j++){
+            if(ara[j]> ara[j+1]){
+                swap(ara[j],ara[j+1]);
+                swapped = true;
             }
         }
+    for(int i=0;i<n;i++)cout<<ara[i]<<" ";
+    cout<<endl;
+
+        if(!swapped) break; // If no swapping occurred, array is sorted
     }
 }
 
 int main() {
 
-    int TC;
-    cin >> TC;
-    while (TC--) {
-        int ara[10]={9,4,1,8,3,2,6,10,5,7};
-        BubbleSort(ara,10);
-        for(int i=0;i<10;i++)
-            cout<<ara[i]<<" ";
-        cout<<endl;
+    int ara[]={9,4,1,8,3,2,6,10,5,7};
+    for(int i=0;i<10;i++)
+        cout<<ara[i]<<" ";
+    cout<<endl;
+    BubbleSort(ara,10);
 
-    }
+    for(int i=0;i<10;i++)
+        cout<<ara[i]<<" ";
+    cout<<endl;
+
     return 0;
 }
 

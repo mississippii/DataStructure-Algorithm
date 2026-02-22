@@ -9,27 +9,27 @@ using namespace std;
 
 //<-----Time Complexity O(n^2)------->
 
-void SelectionSort(int ara[],int n){
-    for(int i=0;i<10;i++){
-        for(int j=i+1;j<10;j++){
+void SelectionSort(int *ara,int n){
+    for(int i=0;i<n;i++){
+        for(int j=i+1;j<n;j++){
             if(ara[i]>ara[j]){
                 swap(ara[i],ara[j]);
             }
         }
+    for(int i=0;i<n;i++)cout<<ara[i]<<" ";
+    cout<<endl;
     }
 }
 
 int main() {
 
-    int TC;
-    cin >> TC;
-    while (TC--) {
-        int ara[10]={9,4,1,8,3,2,6,10,5,7};
-        SelectionSort(ara,10);
-        for(int i=0;i<10;i++)
-            cout<<ara[i]<<" ";
-        cout<<endl;
-    }
+    int ara[]={9,4,1,8,3,2,6,10,5,7};
+    SelectionSort(ara,10);
+
+    for(int i=0;i<10;i++)
+        cout<<ara[i]<<" ";
+    cout<<endl;
+
     return 0;
 }
 
