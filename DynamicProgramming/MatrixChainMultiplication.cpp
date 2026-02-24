@@ -1,48 +1,37 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define ll            long long
-#define PI            acos(-1)
-#define RESET(a,b)    memset(a,b,sizeof(a))
-#define maxi          INT_MAX
-#define mini          INT_MIN
+// Matrix Chain Multiplication
+// Given n matrices where matrix i has dimensions p[i-1] x p[i],
+// find minimum scalar multiplications needed.
+// Time: O(n^3), Space: O(n^2)
 
-struct Matrix{
-    int row;
-    int col;
-};
+int memo[101][101];
+int p[101];
 
-Matrix  matrix[3];
-int memo[10][30];
+int mcm(int i, int j) {
+    if (i >= j) return 0;
+    if (memo[i][j] != -1) return memo[i][j];
 
-int mergeCost(int left, int right,int k){
-    return (matrix[left].row * matrix[k].col * matrix[right].col);
-}
-int getMinimumScalerOperations(int left, int right){
-
-    if(left >= right)return memo[left][right]=0;
-
-    if(memo[left][right]!=-1)return memo[left][right];
-
-    int ans =INT_MAX;
-
-    for(int k =left; k < right;k++){
-        int leftCost = getMinimumScalerOperations(left, k);
-        int rightCost = getMinimumScalerOperations(k+1, right);
-        int cost = leftCost + rightCost + mergeCost(left,right,k);
-        ans = min(ans,cost);
+    int ans = INT_MAX;
+    for (int k = i; k < j; k++) {
+        int cost = mcm(i, k) + mcm(k + 1, j) + p[i - 1] * p[k] * p[j];
+        ans = min(ans, cost);
     }
-    return memo[left][right]= ans;
+    return memo[i][j] = ans;
 }
+
 int main() {
-    matrix[0].row=10;
-    matrix[0].col=5;
-    matrix[1].row=5;
-    matrix[1].col=50;
-    matrix[2].row=50;
-    matrix[2].col=20;
-    RESET(memo,-1);
-    int ans = getMinimumScalerOperations(0,2);
-    cout<<ans<<endl;
+    // Matrices: A1(10x5), A2(5x50), A3(50x20)
+    // p[] = {10, 5, 50, 20}
+    int dims[] = {10, 5, 50, 20};
+    int n = 3;
+
+    for (int i = 0; i <= n; i++) p[i] = dims[i];
+    memset(memo, -1, sizeof(memo));
+
+    // mcm(1, n) = minimum cost to multiply matrices 1..n
+    cout << "Minimum multiplications: " << mcm(1, n) << endl;
+
     return 0;
 }
