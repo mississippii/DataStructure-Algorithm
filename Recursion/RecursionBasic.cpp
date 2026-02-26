@@ -11,11 +11,12 @@ void headRecursion(int n) {
     if (n == 0) return; // Base case
 
     headRecursion(n - 1); // Recursive call
-
     cout << n << " "; // Process after recursive call
 }
+
 void tailRecursion(int n) {
     if (n == 0) return; // Base case
+
     cout << n << " "; // Process after recursive call
     tailRecursion(n - 1); // Recursive call
     
