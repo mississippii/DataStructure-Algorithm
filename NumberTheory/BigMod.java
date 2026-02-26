@@ -13,12 +13,18 @@ public class BigMod {
         
     }
 
-    
+    static int bigFactorial(int n, int m) {
+        int fact = 1;
+
+        for(int i=1 ;i<=n ; i++) {
+            fact = ((fact%m)*(i%m))%m;
+        }
+        return fact;
+    }
     public static void main(String[] args) {
-        int base=2;
-        int power=5;
-        int mod= 7;
-        System.out.println(power(base, power, mod)); 
-        
+        int val = power(2, 10, 1000);
+        int reminder = bigFactorial(55, 101);
+        System.out.println("Power: " + val);
+        System.out.println("Reminder: " + reminder);    
     }
 }

@@ -16,7 +16,7 @@ int EuclideanGCD(int a,int b){
 }
 
 int calculateLCM(int a,int b){
-    return (a*b)/EuclideanGCD(a,b);
+    return (a/EuclideanGCD(a,b))*b;
 }
 
 int LcmBruteForce(int a,int b){
